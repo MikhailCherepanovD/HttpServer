@@ -1,0 +1,131 @@
+Command: curl -v -X POST http://127.0.0.1:8085/api/user/user1 \
+-H "Content-Type: application/json" \
+-d '{"firstName": "Michael", "lastName": "Jackson", "phone": "+7 (952) 812"}'
+Exit Code: 0
+Standard Output:
+{"firstName":"Michael","lastName":"Jackson","phone":"+7 (952) 812"}
+
+Error Output:
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 127.0.0.1:8085...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8085 (#0)
+> POST /api/user/user1 HTTP/1.1
+> Host: 127.0.0.1:8085
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 72
+> 
+} [72 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 201 Created
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 67
+< Date: 2024-09-15T01:02:31.033657062
+< Content-Type: application/json; charset=UTF-8
+< Location: /api/user/user1
+< 
+{ [67 bytes data]
+
+100   139  100    67  100    72  28293  30405 --:--:-- --:--:-- --:--:--  135k
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v http://127.0.0.1:8085/api/user/user1
+Exit Code: 0
+Standard Output:
+{"firstName":"Michael","lastName":"Jackson","phone":"+7 (952) 812"}
+
+Error Output:
+*   Trying 127.0.0.1:8085...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8085 (#0)
+> GET /api/user/user1 HTTP/1.1
+> Host: 127.0.0.1:8085
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 Ok
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 67
+< Date: 2024-09-15T01:02:31.044858047
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [67 bytes data]
+
+100    67  100    67    0     0  73626      0 --:--:-- --:--:-- --:--:-- 67000
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v -X DELETE http://127.0.0.1:8085/api/user/user1
+Exit Code: 0
+Error Output:
+*   Trying 127.0.0.1:8085...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8085 (#0)
+> DELETE /api/user/user1 HTTP/1.1
+> Host: 127.0.0.1:8085
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 204 No Content
+< Server: cherep_server
+< Connection: Close
+< Date: 2024-09-15T01:02:31.051788435
+< Content-Type: application/json; charset=UTF-8
+< 
+* Excess found: excess = 4 url = /api/user/user1 (zero-length body)
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v http://127.0.0.1:8085/api/user/user1
+Exit Code: 0
+Error Output:
+*   Trying 127.0.0.1:8085...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8085 (#0)
+> GET /api/user/user1 HTTP/1.1
+> Host: 127.0.0.1:8085
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 204 No Content
+< Server: cherep_server
+< Connection: Close
+< Date: 2024-09-15T01:02:31.061076944
+< Content-Type: application/json; charset=UTF-8
+< 
+* Excess found: excess = 4 url = /api/user/user1 (zero-length body)
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+* Closing connection 0
+
+--------------------
+
+
+

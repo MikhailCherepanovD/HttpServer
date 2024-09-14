@@ -1,0 +1,123 @@
+Command: curl -v http://127.0.0.1:8081/
+Exit Code: 0
+Standard Output:
+{"data":"Initial data"}
+
+Error Output:
+*   Trying 127.0.0.1:8081...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8081 (#0)
+> GET / HTTP/1.1
+> Host: 127.0.0.1:8081
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 Ok
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 23
+< Date: 2024-09-15T01:02:30.361915489
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [23 bytes data]
+
+100    23  100    23    0     0    691      0 --:--:-- --:--:-- --:--:--   696
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v http://127.0.0.1:8081/api
+Exit Code: 0
+Error Output:
+*   Trying 127.0.0.1:8081...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8081 (#0)
+> GET /api HTTP/1.1
+> Host: 127.0.0.1:8081
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 204 No Content
+< Server: cherep_server
+< Connection: Close
+< Date: 2024-09-15T01:02:30.392471251
+< Content-Type: application/json; charset=UTF-8
+< 
+* Excess found: excess = 4 url = /api (zero-length body)
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v http://127.0.0.1:8081/api/user
+Exit Code: 0
+Error Output:
+*   Trying 127.0.0.1:8081...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8081 (#0)
+> GET /api/user HTTP/1.1
+> Host: 127.0.0.1:8081
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 204 No Content
+< Server: cherep_server
+< Connection: Close
+< Date: 2024-09-15T01:02:30.400738377
+< Content-Type: application/json; charset=UTF-8
+< 
+* Excess found: excess = 4 url = /api/user (zero-length body)
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v http://127.0.0.1:8081/asd
+Exit Code: 0
+Standard Output:
+null
+
+Error Output:
+*   Trying 127.0.0.1:8081...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8081 (#0)
+> GET /asd HTTP/1.1
+> Host: 127.0.0.1:8081
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 404 Not found
+< Server: cherep_server
+< Connection: Close
+< Date: 2024-09-15T01:02:30.409098533
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [4 bytes data]
+
+100     4    0     4    0     0   4036      0 --:--:-- --:--:-- --:--:--  4000
+* Closing connection 0
+
+--------------------
+
+
+

@@ -1,0 +1,256 @@
+Command: curl -v -X POST http://127.0.0.1:8083/api/user/user1 \
+-H "Content-Type: application/json" \
+-d '{"firstName": "Michael", "lastName": "Jackson", "phone": "+7 (952) 812"}'
+Exit Code: 0
+Standard Output:
+{"firstName":"Michael","lastName":"Jackson","phone":"+7 (952) 812"}
+
+Error Output:
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 127.0.0.1:8083...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8083 (#0)
+> POST /api/user/user1 HTTP/1.1
+> Host: 127.0.0.1:8083
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 72
+> 
+} [72 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 201 Created
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 67
+< Date: 2024-09-15T01:02:30.535399552
+< Content-Type: application/json; charset=UTF-8
+< Location: /api/user/user1
+< 
+{ [67 bytes data]
+
+100   139  100    67  100    72  22976  24691 --:--:-- --:--:-- --:--:-- 69500
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v -X POST http://127.0.0.1:8083/api/user/user2 \
+-H "Content-Type: application/json" \
+-d '{"firstName": "Arnold", "lastName": "Schwarzenegger", "phone": "+2"}'
+Exit Code: 0
+Standard Output:
+{"firstName":"Arnold","lastName":"Schwarzenegger","phone":"+2"}
+
+Error Output:
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 127.0.0.1:8083...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8083 (#0)
+> POST /api/user/user2 HTTP/1.1
+> Host: 127.0.0.1:8083
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 68
+> 
+} [68 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 201 Created
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 63
+< Date: 2024-09-15T01:02:30.545514098
+< Content-Type: application/json; charset=UTF-8
+< Location: /api/user/user2
+< 
+{ [63 bytes data]
+
+100   131  100    63  100    68  50602  54618 --:--:-- --:--:-- --:--:--  127k
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v -X POST http://127.0.0.1:8083/api/server \
+-H "Content-Type: application/json" \
+-d '{"serverName": "real_server"}'
+Exit Code: 0
+Standard Output:
+{"serverName":"real_server"}
+
+Error Output:
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 127.0.0.1:8083...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8083 (#0)
+> POST /api/server HTTP/1.1
+> Host: 127.0.0.1:8083
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 29
+> 
+} [29 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 201 Created
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 28
+< Date: 2024-09-15T01:02:30.553558775
+< Content-Type: application/json; charset=UTF-8
+< Location: /api/server
+< 
+{ [28 bytes data]
+
+100    57  100    28  100    29  28629  29652 --:--:-- --:--:-- --:--:-- 57000
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v -X POST http://127.0.0.1:8083/api/user/hello \
+-H "Content-Type: application/json" \
+-d '{"firstName": "Arnold", "lastName": "Schwarzenegger", "phone": "+2"}'
+Exit Code: 0
+Standard Output:
+null
+
+Error Output:
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 127.0.0.1:8083...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8083 (#0)
+> POST /api/user/hello HTTP/1.1
+> Host: 127.0.0.1:8083
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 68
+> 
+} [68 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 404 Not found
+< Server: cherep_server
+< Connection: Close
+< Date: 2024-09-15T01:02:30.561188979
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [4 bytes data]
+
+100    72    0     4  100    68   4716  80188 --:--:-- --:--:-- --:--:-- 72000
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v http://127.0.0.1:8083/api/user/user1
+Exit Code: 0
+Standard Output:
+{"firstName":"Michael","lastName":"Jackson","phone":"+7 (952) 812"}
+
+Error Output:
+*   Trying 127.0.0.1:8083...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8083 (#0)
+> GET /api/user/user1 HTTP/1.1
+> Host: 127.0.0.1:8083
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 Ok
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 67
+< Date: 2024-09-15T01:02:30.569649638
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [67 bytes data]
+
+100    67  100    67    0     0  73224      0 --:--:-- --:--:-- --:--:-- 67000
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v http://127.0.0.1:8083/api/user/user2
+Exit Code: 0
+Standard Output:
+{"firstName":"Arnold","lastName":"Schwarzenegger","phone":"+2"}
+
+Error Output:
+*   Trying 127.0.0.1:8083...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8083 (#0)
+> GET /api/user/user2 HTTP/1.1
+> Host: 127.0.0.1:8083
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 Ok
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 63
+< Date: 2024-09-15T01:02:30.577901634
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [63 bytes data]
+
+100    63  100    63    0     0  63765      0 --:--:-- --:--:-- --:--:-- 63000
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v http://127.0.0.1:8083/api/service
+Exit Code: 0
+Standard Output:
+null
+
+Error Output:
+*   Trying 127.0.0.1:8083...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8083 (#0)
+> GET /api/service HTTP/1.1
+> Host: 127.0.0.1:8083
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 404 Not found
+< Server: cherep_server
+< Connection: Close
+< Date: 2024-09-15T01:02:30.586603892
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [4 bytes data]
+
+100     4    0     4    0     0   4932      0 --:--:-- --:--:-- --:--:--  4000
+* Closing connection 0
+
+--------------------
+
+
+
