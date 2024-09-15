@@ -3,7 +3,7 @@ import ru.spring.core.project.HttpServer;
 
 import java.io.*;
 
-public class TestHttpMethods {
+public class TestHttpMethodsDefaultHandler {
     void executeCommand(String command, String logFilePath) throws IOException {
         Process process = Runtime.getRuntime().exec(new String[]{"bash", "-c", command});
 
@@ -57,8 +57,8 @@ public class TestHttpMethods {
         }
         new Thread(() -> {
             HttpServer server = new HttpServer("127.0.0.1",port);
-            server.getRouter().createUrl("api/user");
-            server.getRouter().createUrl("api/server");
+            server.getRouter().createUrlDefaultHandler("api/user");
+            server.getRouter().createUrlDefaultHandler("api/server");
             server.bootstrap();
         }).start();
         Thread.sleep(100);
@@ -79,10 +79,10 @@ public class TestHttpMethods {
         }
         new Thread(() -> {
             HttpServer server = new HttpServer("127.0.0.1",port);
-            server.getRouter().createUrl("api/user/user1");
-            server.getRouter().createUrl("api/user/user2");
-            server.getRouter().createUrl("api/user/user3");
-            server.getRouter().createUrl("api/server");
+            server.getRouter().createUrlDefaultHandler("api/user/user1");
+            server.getRouter().createUrlDefaultHandler("api/user/user2");
+            server.getRouter().createUrlDefaultHandler("api/user/user3");
+            server.getRouter().createUrlDefaultHandler("api/server");
             server.bootstrap();
         }).start();
         Thread.sleep(100);
@@ -123,10 +123,10 @@ public class TestHttpMethods {
         }
         new Thread(() -> {
             HttpServer server = new HttpServer("127.0.0.1",port);
-            server.getRouter().createUrl("api/user/user1");
-            server.getRouter().createUrl("api/user/user2");
-            server.getRouter().createUrl("api/user/user3");
-            server.getRouter().createUrl("api/server");
+            server.getRouter().createUrlDefaultHandler("api/user/user1");
+            server.getRouter().createUrlDefaultHandler("api/user/user2");
+            server.getRouter().createUrlDefaultHandler("api/user/user3");
+            server.getRouter().createUrlDefaultHandler("api/server");
             server.bootstrap();
         }).start();
         Thread.sleep(100);
@@ -169,8 +169,8 @@ public class TestHttpMethods {
         }
         new Thread(() -> {
             HttpServer server = new HttpServer("127.0.0.1",port);
-            server.getRouter().createUrl("api/user/user1");
-            server.getRouter().createUrl("api/server");
+            server.getRouter().createUrlDefaultHandler("api/user/user1");
+            server.getRouter().createUrlDefaultHandler("api/server");
             server.bootstrap();
         }).start();
         Thread.sleep(100);
@@ -204,8 +204,8 @@ public class TestHttpMethods {
         }
         new Thread(() -> {
             HttpServer server = new HttpServer("127.0.0.1",port);
-            server.getRouter().createUrl("api/user/user1");
-            server.getRouter().createUrl("api/server");
+            server.getRouter().createUrlDefaultHandler("api/user/user1");
+            server.getRouter().createUrlDefaultHandler("api/server");
             server.bootstrap();
         }).start();
         Thread.sleep(100);

@@ -4,10 +4,8 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
-import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
-import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.charset.StandardCharsets;
 
 
@@ -15,7 +13,6 @@ public class HttpServer {
     private String hostName;
     private int port;
 
-    private final HttpHandler handler;
     private final Router router;
     private ServerSocketChannel server;
     private final static int BUFFER_SIZE = 256;
@@ -23,7 +20,6 @@ public class HttpServer {
         this.hostName = hostName;
         this.port = port;
         router = new Router();
-        handler = new HttpHandlerIml(router);
     }
     public Router getRouter() {
         return router;
@@ -80,7 +76,7 @@ public class HttpServer {
     }
 
     private HttpResponse getHttpResponse(HttpRequest request){
-        return handler.handle(request);
+        return router.handle(request);
     }
 
 }

@@ -25,13 +25,13 @@ Note: Unnecessary use of -X or --request, POST is already inferred.
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 67
-< Date: 2024-09-15T01:02:31.033657062
+< Date: 2024-09-15T15:58:35.497167824
 < Content-Type: application/json; charset=UTF-8
 < Location: /api/user/user1
 < 
 { [67 bytes data]
 
-100   139  100    67  100    72  28293  30405 --:--:-- --:--:-- --:--:--  135k
+100   139  100    67  100    72  32635  35070 --:--:-- --:--:-- --:--:--  135k
 * Closing connection 0
 
 --------------------
@@ -59,12 +59,12 @@ Error Output:
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 67
-< Date: 2024-09-15T01:02:31.044858047
+< Date: 2024-09-15T15:58:35.511263339
 < Content-Type: application/json; charset=UTF-8
 < 
 { [67 bytes data]
 
-100    67  100    67    0     0  73626      0 --:--:-- --:--:-- --:--:-- 67000
+100    67  100    67    0     0  35733      0 --:--:-- --:--:-- --:--:-- 67000
 * Closing connection 0
 
 --------------------
@@ -88,7 +88,7 @@ Error Output:
 < HTTP/1.1 204 No Content
 < Server: cherep_server
 < Connection: Close
-< Date: 2024-09-15T01:02:31.051788435
+< Date: 2024-09-15T15:58:35.522376671
 < Content-Type: application/json; charset=UTF-8
 < 
 * Excess found: excess = 4 url = /api/user/user1 (zero-length body)
@@ -117,7 +117,7 @@ Error Output:
 < HTTP/1.1 204 No Content
 < Server: cherep_server
 < Connection: Close
-< Date: 2024-09-15T01:02:31.061076944
+< Date: 2024-09-15T15:58:35.529035108
 < Content-Type: application/json; charset=UTF-8
 < 
 * Excess found: excess = 4 url = /api/user/user1 (zero-length body)

@@ -7,25 +7,15 @@ import com.google.gson.JsonSyntaxException;
 
 import java.util.Map;
 
-public class HttpHandlerIml implements HttpHandler{
-    Router router;
-    public HttpHandlerIml(Router router){
-        this.router = router;
-    }
+public class HttpHandlerDefault implements HttpHandler{
+    Resource resource;
 
     private HttpResponse handleGet(HttpRequest request){
         HttpResponse response = new HttpResponse();
-        String url = request.getUrl();
-        if(!router.urlIsExist(url)) { // указанного URL не существует
-            response.setStatusCode(HttpStatus.NOT_FOUND.statusCode);
-            response.setStatus(HttpStatus.NOT_FOUND.statusDescription);
-            return response;
-        }
-        JsonObject jsonObject = router.getDataByUrl(url);
-        if(jsonObject.size() != 0){
+        if(resource.resourceIsExist()){
             response.setStatusCode(HttpStatus.OK.statusCode);
             response.setStatus(HttpStatus.OK.statusDescription);
-            response.setBody(jsonObject.toString());
+            response.setBody(resource.getData().toString());
         }else{
             response.setStatusCode(HttpStatus.NO_CONTENT.statusCode);
             response.setStatus(HttpStatus.NO_CONTENT.statusDescription);
@@ -34,9 +24,7 @@ public class HttpHandlerIml implements HttpHandler{
     }
     private HttpResponse handlePost(HttpRequest request){
         HttpResponse response = new HttpResponse();
-        String url = request.getUrl();
         String data = request.getBody();
-
         JsonObject jsonObjectFromRequest;
         try{
             JsonElement jsonElement = JsonParser.parseString(data);
@@ -47,14 +35,7 @@ public class HttpHandlerIml implements HttpHandler{
             response.setStatus(HttpStatus.BAD_REQUEST.statusDescription);
             return response;
         }
-
-        if(!router.urlIsExist(url)) {
-            response.setStatusCode(HttpStatus.NOT_FOUND.statusCode);
-            response.setStatus(HttpStatus.NOT_FOUND.statusDescription);
-            return response;
-        }
-
-        if(router.getResourceByUrl(url).resourceIsExist()){
+        if(resource.resourceIsExist()){
             response.setStatusCode(HttpStatus.OK.statusCode);
             response.setStatus(HttpStatus.OK.statusDescription);
         }else{
@@ -62,10 +43,9 @@ public class HttpHandlerIml implements HttpHandler{
             response.setStatus(HttpStatus.CREATED.statusDescription);
         }
 
-        router.setDataByUrl(url,jsonObjectFromRequest);
+        resource.setData(jsonObjectFromRequest);
         response.setBody(jsonObjectFromRequest.toString());
-        response.addHeader("Location",url);
-
+        response.addHeader("Location",request.getUrl());
         return response;
     }
 
@@ -97,14 +77,8 @@ public class HttpHandlerIml implements HttpHandler{
             return response;
         }
 
-        if(!router.urlIsExist(url)) {
-            response.setStatusCode(HttpStatus.NOT_FOUND.statusCode);
-            response.setStatus(HttpStatus.NOT_FOUND.statusDescription);
-            return response;
-        }
-
-        JsonObject jsonObjectOld = router.getDataByUrl(url);
-        if(router.getResourceByUrl(url).resourceIsExist()){
+        JsonObject jsonObjectOld = resource.getData();
+        if(resource.resourceIsExist()){
             response.setStatusCode(HttpStatus.OK.statusCode);
             response.setStatus(HttpStatus.OK.statusDescription);
             jsonObjectFromRequest  = updateJsonObject(jsonObjectOld,jsonObjectFromRequest);
@@ -112,28 +86,22 @@ public class HttpHandlerIml implements HttpHandler{
             response.setStatusCode(HttpStatus.CREATED.statusCode);
             response.setStatus(HttpStatus.CREATED.statusDescription);
         }
-        router.setDataByUrl(url,jsonObjectFromRequest);
+        resource.setData(jsonObjectFromRequest);
         response.setBody(jsonObjectFromRequest.toString());
         response.addHeader("Location",url);
         return response;
     }
-
     private HttpResponse handleDelete(HttpRequest request){
         HttpResponse response = new HttpResponse();
         String url = request.getUrl();
-        if(!router.urlIsExist(url)) { // указанного URL не существует
-            response.setStatusCode(HttpStatus.NOT_FOUND.statusCode);
-            response.setStatus(HttpStatus.NOT_FOUND.statusDescription);
-            return response;
-        }
-        router.deleteResourceByUrl(url);
+        resource.deleteResource();
         response.setStatusCode(HttpStatus.NO_CONTENT.statusCode);
         response.setStatus(HttpStatus.NO_CONTENT.statusDescription);
         return response;
     }
-
-    public HttpResponse handle(HttpRequest request) throws RuntimeException{
+    public HttpResponse handle(HttpRequest request, Resource resource) throws RuntimeException{
         HttpResponse retResponse;
+        this.resource = resource;
         switch (request.getMethod()){
             case GET -> retResponse = handleGet(request);
             case PUT -> retResponse = handlePut(request);

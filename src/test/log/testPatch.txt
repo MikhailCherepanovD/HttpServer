@@ -25,13 +25,13 @@ Note: Unnecessary use of -X or --request, POST is already inferred.
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 67
-< Date: 2024-09-15T01:02:30.698789259
+< Date: 2024-09-15T15:58:35.164345204
 < Content-Type: application/json; charset=UTF-8
 < Location: /api/user/user1
 < 
 { [67 bytes data]
 
-100   139  100    67  100    72  65944  70866 --:--:-- --:--:-- --:--:--  135k
+100   139  100    67  100    72  22490  24169 --:--:-- --:--:-- --:--:-- 69500
 * Closing connection 0
 
 --------------------
@@ -64,13 +64,13 @@ Error Output:
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 56
-< Date: 2024-09-15T01:02:30.706792369
+< Date: 2024-09-15T15:58:35.183221908
 < Content-Type: application/json; charset=UTF-8
 < Location: /api/user/user1
 < 
 { [56 bytes data]
 
-100   117  100    56  100    61  55666  60636 --:--:-- --:--:-- --:--:--  114k
+100   117  100    56  100    61  24593  26789 --:--:-- --:--:-- --:--:-- 58500
 * Closing connection 0
 
 --------------------
@@ -103,13 +103,13 @@ Error Output:
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 56
-< Date: 2024-09-15T01:02:30.715924792
+< Date: 2024-09-15T15:58:35.197011986
 < Content-Type: application/json; charset=UTF-8
 < Location: /api/server
 < 
 { [56 bytes data]
 
-100   117  100    56  100    61  54794  59686 --:--:-- --:--:-- --:--:--  114k
+100   117  100    56  100    61  44198  48145 --:--:-- --:--:-- --:--:--  114k
 * Closing connection 0
 
 --------------------
@@ -137,12 +137,12 @@ Error Output:
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 56
-< Date: 2024-09-15T01:02:30.726184669
+< Date: 2024-09-15T15:58:35.207735495
 < Content-Type: application/json; charset=UTF-8
 < 
 { [56 bytes data]
 
-100    56  100    56    0     0  54474      0 --:--:-- --:--:-- --:--:-- 56000
+100    56  100    56    0     0  63926      0 --:--:-- --:--:-- --:--:-- 56000
 * Closing connection 0
 
 --------------------
@@ -170,12 +170,12 @@ Error Output:
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 56
-< Date: 2024-09-15T01:02:30.734902757
+< Date: 2024-09-15T15:58:35.214985858
 < Content-Type: application/json; charset=UTF-8
 < 
 { [56 bytes data]
 
-100    56  100    56    0     0  56056      0 --:--:-- --:--:-- --:--:-- 56000
+100    56  100    56    0     0  67878      0 --:--:-- --:--:-- --:--:-- 56000
 * Closing connection 0
 
 --------------------

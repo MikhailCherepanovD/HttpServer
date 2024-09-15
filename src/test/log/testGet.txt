@@ -19,12 +19,12 @@ Error Output:
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 23
-< Date: 2024-09-15T01:02:30.361915489
+< Date: 2024-09-15T15:58:34.822789556
 < Content-Type: application/json; charset=UTF-8
 < 
 { [23 bytes data]
 
-100    23  100    23    0     0    691      0 --:--:-- --:--:-- --:--:--   696
+100    23  100    23    0     0    632      0 --:--:-- --:--:-- --:--:--   638
 * Closing connection 0
 
 --------------------
@@ -48,7 +48,7 @@ Error Output:
 < HTTP/1.1 204 No Content
 < Server: cherep_server
 < Connection: Close
-< Date: 2024-09-15T01:02:30.392471251
+< Date: 2024-09-15T15:58:34.854109696
 < Content-Type: application/json; charset=UTF-8
 < 
 * Excess found: excess = 4 url = /api (zero-length body)
@@ -77,7 +77,7 @@ Error Output:
 < HTTP/1.1 204 No Content
 < Server: cherep_server
 < Connection: Close
-< Date: 2024-09-15T01:02:30.400738377
+< Date: 2024-09-15T15:58:34.861750441
 < Content-Type: application/json; charset=UTF-8
 < 
 * Excess found: excess = 4 url = /api/user (zero-length body)
@@ -109,12 +109,12 @@ Error Output:
 < HTTP/1.1 404 Not found
 < Server: cherep_server
 < Connection: Close
-< Date: 2024-09-15T01:02:30.409098533
+< Date: 2024-09-15T15:58:34.869860871
 < Content-Type: application/json; charset=UTF-8
 < 
 { [4 bytes data]
 
-100     4    0     4    0     0   4036      0 --:--:-- --:--:-- --:--:--  4000
+100     4    0     4    0     0   4410      0 --:--:-- --:--:-- --:--:--  4000
 * Closing connection 0
 
 --------------------

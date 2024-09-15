@@ -25,13 +25,13 @@ Note: Unnecessary use of -X or --request, POST is already inferred.
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 67
-< Date: 2024-09-15T01:02:30.856038086
+< Date: 2024-09-15T15:58:35.335505846
 < Content-Type: application/json; charset=UTF-8
 < Location: /api/user/user1
 < 
 { [67 bytes data]
 
-100   139  100    67  100    72  36334  39045 --:--:-- --:--:-- --:--:--  135k
+100   139  100    67  100    72  35752  38420 --:--:-- --:--:-- --:--:--  135k
 * Closing connection 0
 
 --------------------
@@ -65,13 +65,13 @@ Note: Unnecessary use of -X or --request, POST is already inferred.
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 63
-< Date: 2024-09-15T01:02:30.871732255
+< Date: 2024-09-15T15:58:35.345376216
 < Content-Type: application/json; charset=UTF-8
 < Location: /api/user/user2
 < 
 { [63 bytes data]
 
-100   131  100    63  100    68  35876  38724 --:--:-- --:--:-- --:--:--  127k
+100   131  100    63  100    68  72082  77803 --:--:-- --:--:-- --:--:--  127k
 * Closing connection 0
 
 --------------------
@@ -105,13 +105,13 @@ Note: Unnecessary use of -X or --request, POST is already inferred.
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 28
-< Date: 2024-09-15T01:02:30.882369998
+< Date: 2024-09-15T15:58:35.352149134
 < Content-Type: application/json; charset=UTF-8
 < Location: /api/server
 < 
 { [28 bytes data]
 
-100    57  100    28  100    29  34313  35539 --:--:-- --:--:-- --:--:-- 57000
+100    57  100    28  100    29  34355  35582 --:--:-- --:--:-- --:--:-- 57000
 * Closing connection 0
 
 --------------------
@@ -144,12 +144,12 @@ Note: Unnecessary use of -X or --request, POST is already inferred.
 < HTTP/1.1 404 Not found
 < Server: cherep_server
 < Connection: Close
-< Date: 2024-09-15T01:02:30.889155736
+< Date: 2024-09-15T15:58:35.358386941
 < Content-Type: application/json; charset=UTF-8
 < 
 { [4 bytes data]
 
-100    72    0     4  100    68   5056  85967 --:--:-- --:--:-- --:--:-- 72000
+100    72    0     4  100    68   4956  84262 --:--:-- --:--:-- --:--:-- 72000
 * Closing connection 0
 
 --------------------
@@ -177,12 +177,12 @@ Error Output:
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 67
-< Date: 2024-09-15T01:02:30.896977169
+< Date: 2024-09-15T15:58:35.364858523
 < Content-Type: application/json; charset=UTF-8
 < 
 { [67 bytes data]
 
-100    67  100    67    0     0  63386      0 --:--:-- --:--:-- --:--:-- 67000
+100    67  100    67    0     0  92413      0 --:--:-- --:--:-- --:--:-- 67000
 * Closing connection 0
 
 --------------------
@@ -210,12 +210,12 @@ Error Output:
 < Server: cherep_server
 < Connection: Close
 < Content-Length: 63
-< Date: 2024-09-15T01:02:30.907032545
+< Date: 2024-09-15T15:58:35.371203460
 < Content-Type: application/json; charset=UTF-8
 < 
 { [63 bytes data]
 
-100    63  100    63    0     0  64417      0 --:--:-- --:--:-- --:--:-- 63000
+100    63  100    63    0     0  83665      0 --:--:-- --:--:-- --:--:-- 63000
 * Closing connection 0
 
 --------------------
@@ -242,12 +242,12 @@ Error Output:
 < HTTP/1.1 404 Not found
 < Server: cherep_server
 < Connection: Close
-< Date: 2024-09-15T01:02:30.914410742
+< Date: 2024-09-15T15:58:35.377395443
 < Content-Type: application/json; charset=UTF-8
 < 
 { [4 bytes data]
 
-100     4    0     4    0     0   4968      0 --:--:-- --:--:-- --:--:--  4000
+100     4    0     4    0     0   5873      0 --:--:-- --:--:-- --:--:--  4000
 * Closing connection 0
 
 --------------------

@@ -1,0 +1,269 @@
+Command: curl -v http://127.0.0.1:8090/api/default
+Exit Code: 0
+Standard Output:
+{"text":"api_default text"}
+
+Error Output:
+*   Trying 127.0.0.1:8090...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8090 (#0)
+> GET /api/default HTTP/1.1
+> Host: 127.0.0.1:8090
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 Ok
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 27
+< Date: 2024-09-15T17:02:17.906843248
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [27 bytes data]
+
+100    27  100    27    0     0    820      0 --:--:-- --:--:-- --:--:--   843
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v http://127.0.0.1:8090/api/readonly
+Exit Code: 0
+Standard Output:
+{"text":"api_readonly text"}
+
+Error Output:
+*   Trying 127.0.0.1:8090...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8090 (#0)
+> GET /api/readonly HTTP/1.1
+> Host: 127.0.0.1:8090
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 Ok
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 28
+< Date: 2024-09-15T17:02:17.941842269
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [28 bytes data]
+
+100    28  100    28    0     0  20437      0 --:--:-- --:--:-- --:--:-- 28000
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v -X POST http://127.0.0.1:8090/api/default \
+-H "Content-Type: application/json" \
+-d '{"firstName": "Michael", "lastName": "Jackson", "phone": "+7 (952) 812"}'
+Exit Code: 0
+Standard Output:
+{"firstName":"Michael","lastName":"Jackson","phone":"+7 (952) 812"}
+
+Error Output:
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 127.0.0.1:8090...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8090 (#0)
+> POST /api/default HTTP/1.1
+> Host: 127.0.0.1:8090
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 72
+> 
+} [72 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 Ok
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 67
+< Date: 2024-09-15T17:02:17.949664076
+< Content-Type: application/json; charset=UTF-8
+< Location: /api/default
+< 
+{ [67 bytes data]
+
+100   139  100    67  100    72  23851  25631 --:--:-- --:--:-- --:--:-- 69500
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v -X POST http://127.0.0.1:8090/api/readonly \
+-H "Content-Type: application/json" \
+-d '{"firstName": "Michael", "lastName": "Jackson", "phone": "+7 (952) 812"}'
+Exit Code: 0
+Standard Output:
+this is only read only endpoint
+
+Error Output:
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 127.0.0.1:8090...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8090 (#0)
+> POST /api/readonly HTTP/1.1
+> Host: 127.0.0.1:8090
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 72
+> 
+} [72 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 403 Forbidden
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 32
+< Date: 2024-09-15T17:02:17.959821268
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [32 bytes data]
+
+100   104  100    32  100    72  26533  59701 --:--:-- --:--:-- --:--:--  101k
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v -X DELETE http://127.0.0.1:8090/api/readonly
+Exit Code: 0
+Standard Output:
+this is only read only endpoint
+
+Error Output:
+*   Trying 127.0.0.1:8090...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8090 (#0)
+> DELETE /api/readonly HTTP/1.1
+> Host: 127.0.0.1:8090
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 403 Forbidden
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 32
+< Date: 2024-09-15T17:02:17.968222847
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [32 bytes data]
+
+100    32  100    32    0     0  27210      0 --:--:-- --:--:-- --:--:-- 32000
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v -X DELETE http://127.0.0.1:8090/api/default
+Exit Code: 0
+Error Output:
+*   Trying 127.0.0.1:8090...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8090 (#0)
+> DELETE /api/default HTTP/1.1
+> Host: 127.0.0.1:8090
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 204 No Content
+< Server: cherep_server
+< Connection: Close
+< Date: 2024-09-15T17:02:17.976862425
+< Content-Type: application/json; charset=UTF-8
+< 
+* Excess found: excess = 4 url = /api/default (zero-length body)
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v http://127.0.0.1:8090/api/default
+Exit Code: 0
+Error Output:
+*   Trying 127.0.0.1:8090...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8090 (#0)
+> GET /api/default HTTP/1.1
+> Host: 127.0.0.1:8090
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 204 No Content
+< Server: cherep_server
+< Connection: Close
+< Date: 2024-09-15T17:02:17.984755279
+< Content-Type: application/json; charset=UTF-8
+< 
+* Excess found: excess = 4 url = /api/default (zero-length body)
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+* Closing connection 0
+
+--------------------
+
+
+
+Command: curl -v http://127.0.0.1:8090/api/readonly
+Exit Code: 0
+Standard Output:
+{"text":"api_readonly text"}
+
+Error Output:
+*   Trying 127.0.0.1:8090...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 8090 (#0)
+> GET /api/readonly HTTP/1.1
+> Host: 127.0.0.1:8090
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 Ok
+< Server: cherep_server
+< Connection: Close
+< Content-Length: 28
+< Date: 2024-09-15T17:02:17.993551432
+< Content-Type: application/json; charset=UTF-8
+< 
+{ [28 bytes data]
+
+100    28  100    28    0     0  24305      0 --:--:-- --:--:-- --:--:-- 28000
+* Closing connection 0
+
+--------------------
+
+
+

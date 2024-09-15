@@ -1,16 +1,13 @@
 import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
-import ru.spring.core.project.HttpServer;
 import ru.spring.core.project.Router;
-
-import java.io.*;
 
 public class TestRouter {
     @Test
     public void testRouter1(){
         Router router = new Router();
-        router.createUrl("/aaa/bbb/ccc");
-        router.createUrl("/api/mvp");
+        router.createUrlDefaultHandler("/aaa/bbb/ccc");
+        router.createUrlDefaultHandler("/api/mvp");
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("data","data in url /aaa/bbb");
 

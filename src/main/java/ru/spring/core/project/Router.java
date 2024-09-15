@@ -2,16 +2,13 @@ package ru.spring.core.project;
 
 import com.google.gson.JsonObject;
 
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-
 public class Router {
     private Resource rootResource;  // root of tree resources
     public Router(){
         JsonObject data = new JsonObject();
         data.addProperty("data","Initial data");
         rootResource = new Resource("",data);
+        rootResource.addDefaultHandler();
     }
     public boolean urlIsExist(String url){
         String[] segments = url.split("/");
@@ -38,20 +35,21 @@ public class Router {
         currResource.setData(data);
     }
 
-    public void createUrl(String url){
+    public void createUrlDefaultHandler(String url){
         Resource currResource = getResourceByUrl(url);
+        currResource.addDefaultHandler();
+    }
+
+    public void createUrlCustomHandler(String url,HttpHandler handler){
+        Resource currResource = getResourceByUrl(url);
+        currResource.addCustomHandler(handler);
     }
     public void deleteResourceByUrl(String url){
         Resource currResource = getResourceByUrl(url);
         currResource.deleteResource();
     }
     public Resource getResourceByUrl(String url){
-       /* while(!url.isEmpty() && url.charAt(0)=='/' ){
-            url = url.substring(1);
-        }
-        while(!url.isEmpty() &&  url.charAt(url.length()-1)=='/'  ){
-            url = url.substring(0,url.length()-1);
-        }*/
+
         String[] segments = url.split("/");
         Resource currResource = rootResource;
         for(var segment:segments){
@@ -61,5 +59,20 @@ public class Router {
         return currResource;
     }
 
-
+    public HttpResponse handle(HttpRequest request){
+        String url = request.getUrl();
+        HttpResponse response = new HttpResponse();
+        if(!HttpMethod.contains(request.getMethod().toString())){
+            response.setStatusCode(HttpStatus.BAD_REQUEST.statusCode);
+            response.setStatus(HttpStatus.BAD_REQUEST.statusDescription);
+            return response;
+        }
+        if(!urlIsExist(url)) { // указанного URL не существует
+            response.setStatusCode(HttpStatus.NOT_FOUND.statusCode);
+            response.setStatus(HttpStatus.NOT_FOUND.statusDescription);
+            return response;
+        }
+        Resource resource = getResourceByUrl(url);
+        return resource.getHandler().handle(request,resource);
+    }
 }
